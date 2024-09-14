@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow:hidden;">
+<head>
+  <meta charset="UTF-8">
+  
+  <script src="huebee.pkgd.min.js"></script>
+  <link rel="stylesheet" href="huebee.min.css">
+</head>
+<style>
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.color-input {
+width: 5em;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+canvas {
+    border: 1px solid #ccc;
+}
+
+.column {
+      width: 50%;
+      text-align: center;
+}
+
+.footer {
+  width: 80%;
+  text-align: center;
+  margin-top: 10px;
+  margin: auto;
+  
+}
+
+.top-columns {
+  display: flex;
+  margin-top: 10px;
+  
+}
+
+.controls {
+    margin-left: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+
+.highlight {
+    background-color: #f0f0f0;
+}
+
+
+
+</style>
+
+<html>
+    <div class="container">
+       <div class="top-columns">
+       
+       
+         <div class="column">
+            <h4>Substituents</h4>
+            <label for="front1">Front 1:</label>
+            <input type="text" id="front1" value="H"><input class="color-input" value="#000" id="f1color"/>
+            <label for="front2">Front 2:</label>
+            <input type="text" id="front2" value="H"><input class="color-input" value="#000" id="f2color"/>
+            <label for="front3">Front 3:</label>
+            <input type="text" id="front3" value="H"><input class="color-input" value="#000" id="f3color"/>
+            <br>
+            <label for="back1">Back 1:</label>
+            <input type="text" id="back1" value="H"><input class="color-input" value="#000" id="b1color"/>
+            <label for="back2">Back 2:</label>
+            <input type="text" id="back2" value="H"><input class="color-input" value="#000" id="b2color"/>
+            <label for="back3">Back 3:</label>
+            <input type="text" id="back3" value="H"><input class="color-input" value="#000" id="b3color"/>
+            
+        </div>
+       
+        <div class="column">
+            <label style="display: inline-block;" for="conformation">Conformation</label>
+            <select style="display: inline-block;" id="conformation" name="conformation">
+                <option value="staggered">Staggered</option>
+                <option value="eclipsed">Eclipsed</option>
+            </select>
+           <br>
+            <label style="display: inline-block;" for="eclipsed_offset">Eclipsed Offset</label>
+            <input style="display: inline-block;" type="number" id="eclipsed_offset" name = "eclipsed_offset" min="0" max="30" value = "10" />
+            <br><br>
+            <canvas id="projectionCanvas" width="300" height="300"></canvas>
+            <button onclick="downloadCroppedImage()">Download Image</button>
+        </div>
+       
+
+        
+        
+
+      </div>
+        <div class="footer">
+           <!-- <button onclick="drawProjection()">Draw Projection</button> -->
+
+            <button style="padding: 10px 20px;" onclick="exportCroppedImage()">Insert Image</button>&nbsp;&nbsp;&nbsp;
+            <button style="padding: 10px 20px;" onclick="cancel()">Cancel</button>
+        </div>
+        
+        
+    </div>
+
+    <script src="/tsugi/mod/openochem/tinymce/js/tinymce/plugins/oocnewman/app.js"></script>
+
+
+
+
+</html>
+
+
+
